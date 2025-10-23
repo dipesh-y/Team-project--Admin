@@ -8,7 +8,7 @@ It allows the admin to manage **products, categories, users, and orders**, and v
 
 ---
 
-## ⚙️ Tech Stack
+## ⚙️ Tech Stack 
 
 **Frontend:**
 - React (Vite)
