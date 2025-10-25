@@ -1,1 +1,11 @@
 @import "tailwindcss";
+body{
+    font-family: "Railway",serif;
+}
+.MuiBadge-badge{
+    background: #ff5252 !important;
+}
+
+.ReactCollapse--collapse {
+  transition: height 500ms;
+}
