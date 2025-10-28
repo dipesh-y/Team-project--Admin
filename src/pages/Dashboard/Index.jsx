@@ -1,10 +1,15 @@
 import React from 'react'
 import { FaPlus } from "react-icons/fa";
 import DashboardBoxes from '../../components/DashboardBoxes'
+import Checkbox from '@mui/material/Checkbox';
+import { Link } from 'react-router-dom';
+import Progress from '../../components/Progress bar';
+
 const Dashboard = () => {
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   return (
    <>
-   <div className="w-full bg-white p-5 border border-[rgba(0,0,0,0.1)] flex items-center gap-8 mb-5 justify-between rounded-md">
+   <div className="w-full bg-white px-5 border bg-[#87c8eb] border-[rgba(9,154,67,0.1)] flex items-center gap-8 mb-5 justify-between rounded-md">
       <div className="info">
         <h1 className="text-[35px] font-[600] font-bold leading-10 mb-3">Good Morning,
           Cameron
@@ -23,126 +28,113 @@ const Dashboard = () => {
 
 
    <div className="card my-3 shadow-md sm:rounded-lg bg-white">
-    <div className="flex items-center justify-between px-3 py-5">
-      <h2 className="text-[18px] font-[600]"> Recent orders</h2>
+    <div className="flex items-center justify-between px-3 py-5 ">
+      <h2 className="text-[18px] font-[600]">  Products</h2>
     </div>
-    
+
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-full text-sm text-left rtl:text-right ">
+        <thead class="text-xs  uppercase">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Product name
+                <th scope="col" className="px-6 py-3" width="10%"> 
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label } size='small' />
+                     </div>
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Color
+                   Product  
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                   Category 
                 </th>
+               <th scope="col" class="px-6 py-3">
+                    Sub-Category
+                </th>
+                
                 <th scope="col" class="px-6 py-3">
-                    Price
+                   Price 
                 </th>
+               <th scope="col" class="px-6 py-3">
+                  Sales
+                   </th>
                 <th scope="col" class="px-6 py-3">
-                    Action
-                </th>
+                  Action 
+                   </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
-                </th>
-                <td class="px-6 py-4">
-                    Silver
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
                 </td>
-                <td class="px-6 py-4">
-                    Laptop
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
                 </td>
-                <td class="px-6 py-4">
-                    $2999
+                <td className="px-6 py-2">
+                    electronics 
                 </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
                 </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+
+                <td className="px-6 py-2">action </td>
             </tr>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Microsoft Surface Pro
-                </th>
-                <td class="px-6 py-4">
-                    White
-                </td>
-                <td class="px-6 py-4">
-                    Laptop PC
-                </td>
-                <td class="px-6 py-4">
-                    $1999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Magic Mouse 2
-                </th>
-                <td class="px-6 py-4">
-                    Black
-                </td>
-                <td class="px-6 py-4">
-                    Accessories
-                </td>
-                <td class="px-6 py-4">
-                    $99
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Google Pixel Phone
-                </th>
-                <td class="px-6 py-4">
-                    Gray
-                </td>
-                <td class="px-6 py-4">
-                    Phone
-                </td>
-                <td class="px-6 py-4">
-                    $799
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple Watch 5
-                </th>
-                <td class="px-6 py-4">
-                    Red
-                </td>
-                <td class="px-6 py-4">
-                    Wearables
-                </td>
-                <td class="px-6 py-4">
-                    $999
-                </td>
-                <td class="px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                </td>
-            </tr>
+             
         </tbody>
     </table>
 </div>
 
 
    </div>
+
+
+    
+
+
+
+
+
    </>
   )
 }
 
-export default Dashboard
+export default Dashboard;
