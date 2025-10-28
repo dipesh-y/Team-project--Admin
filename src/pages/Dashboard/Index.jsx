@@ -4,6 +4,10 @@ import DashboardBoxes from '../../components/DashboardBoxes'
 import Checkbox from '@mui/material/Checkbox';
 import { Link } from 'react-router-dom';
 import Progress from '../../components/Progress bar';
+import { CiEdit } from "react-icons/ci";
+import { IoMdEye } from "react-icons/io";
+import { FaTrashAlt } from "react-icons/fa";
+import Tooltip from '@mui/material/Tooltip';
 
 const Dashboard = () => {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -115,8 +119,546 @@ const Dashboard = () => {
                     <Progress value={20} type="success"/>
                  </td>
 
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
-                <td className="px-6 py-2">action </td>
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
+            </tr>
+             
+        </tbody>
+         <tbody>
+            <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
+                <td className='px-6 py-3'>
+                    <div className='w-[60px]'> 
+                     <Checkbox {...label} size='small'/>
+                     </div>
+                </td>
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                        <div className='w-[65px] h-[65px] rounded-md overflow-hidden group'>
+                            <Link to="/product/45745"> 
+                            <img  className='w-full group-hover:scale-110 transition-all' src='https://ecme-react.themenate.net/img/products/product-1.jpg'>
+                            </img>
+                            </Link>
+                            
+                        </div>
+
+                        <div className='info w-[75%]'>
+                            <h4 className='font-[400] text-[12px] leading-4 hover:text-blue-400'>
+                                <Link to="/product/45745">
+                                VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for women
+                                </Link>
+                            </h4>
+                            <span className='text-[12px]'>Brooks</span>
+                        </div>
+                    </div>
+
+                </td>
+                <td className="px-6 py-2">
+                    electronics 
+                </td>
+               <td className="px-6 py-2">Women </td>
+
+                
+                <td className="px-6 py-2">
+                    <div className='flex gap-1 flex-col'>
+                        <span className='line-through text-[12px] text-gray-400 mr-2'>$300</span>
+                        <span className='font-[600] text-[14px]'>$250</span> 
+                    </div>
+                </td>
+
+
+                <td className="px-6 py-2">
+                    <p className='text-[16px] w-[150px]  itmes-center'>
+                        <span className='font-[600] w-[150px] mr-2'>
+                        234
+                        </span>
+                        sale
+                    </p>
+                    <Progress value={20} type="success"/>
+                 </td>
+
+                <td className="px-6 py-2">
+                    <div className='flex items-center gap-4'>
+                         <Tooltip title="Edit Product Details" placement="top">
+                    <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button> 
+                    </Tooltip>
+
+                    <Tooltip title="See Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+                    </button>
+                    </Tooltip>
+                    <Tooltip title="Remove Product" placement="top">
+                    <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
+                        <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
+
+
+                    </button> 
+                    </Tooltip>
+
+                    </div>
+
+                </td>
+
+
+
+
             </tr>
              
         </tbody>
