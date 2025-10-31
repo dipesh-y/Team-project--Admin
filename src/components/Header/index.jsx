@@ -10,6 +10,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from '@mui/material/Divider';
 import {IoMdLogOut} from 'react-icons/io';
+import { TfiAlignRight } from "react-icons/tfi";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -20,7 +21,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-const Header = () => {
+const Header = ({ toggleSidebar, isSidebarOpen }) => {
   const [anchorMyAcc, setAnchorMyAcc] = React.useState(null);
   const openMyAcc = Boolean(anchorMyAcc);
   const handleClickMyAcc = (event) => {
@@ -30,14 +31,17 @@ const Header = () => {
     setAnchorMyAcc(null);
   };
   return (
-    <header className="w-full h-[auto] py-2 pl-52 shadow-md pr-7 bg-[#fff] flex items-center justify-between">
-      <div className="part1">
-        <Button className="!w-[40px] !h-[40px] !rounded-full !min-w-[40px] !text-[rgba(0,0,0,0.8)]">
-          <RiMenu2Line className="text-[18px] text-[rgba(0,0,0,0.8)]" />
-        </Button>
-      </div>
+      <header className={`h-[60px] py-2 px-7 shadow-md bg-[#fff] flex items-center justify-between fixed top-0 z-50 transition-all duration-300 ${isSidebarOpen ? 'left-[18%] right-0' : 'left-0 right-0'}`}>
+        <div className="part1">
+          <Button
+            onClick={toggleSidebar}
+            className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-gray-50 hover:!bg-gray-100"
+          >
+            <RiMenu2Line className="text-[20px] text-[rgba(0,0,0,0.8)]" />
+          </Button>
+        </div>
 
-      <div className="part2 w-[40%] flex items-center justify-end gap-5">
+        <div className="part2 w-[40%] flex items-center justify-end gap-5">
         <IconButton aria-label="cart">
           <StyledBadge badgeContent={4} color="secondary">
             <FaRegBell />

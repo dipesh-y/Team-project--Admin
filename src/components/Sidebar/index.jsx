@@ -10,7 +10,10 @@ import { IoBagCheckOutline } from "react-icons/io5";
 import { IoMdLogOut } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa6";
 import { Collapse } from "react-collapse";
-const Sidebar = () => {
+import { RiMenu2Line } from "react-icons/ri";
+
+
+const Sidebar = ({ toggleSidebar }) => {
   const [submenuIndex, setSubmenuIndex] = useState(null);
   const isOpenSubMenu = (index) => {
     if(submenuIndex===index){
@@ -22,18 +25,19 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-      <div className="sidebar fixed top-0 left-0 bg-[#fff] w-[18%] h-full border-r border-[rgba(0,0,0,0.1)] py-2 px-4">
-        <div className="py-2 w-full">
-          <Link to="/">
-            <img
-              src="https://ecme-react.themenate.net/img/logo/logo-light-full.png"
-              className="w-[120px]"
-            />
-          </Link>
+      <div className="sidebar fixed top-0 left-0 bg-[#fff] h-screen w-[18%] border-r border-[rgba(0,0,0,0.1)] shadow-md transition-all duration-300">
+        <div className="relative w-full">
+          <div className="py-2 w-full px-4">
+            <Link to="/">
+              <img
+                src="https://ecme-react.themenate.net/img/logo/logo-light-full.png"
+                className="w-[120px]"
+                alt="Logo"
+              />
+            </Link>
+          </div>
         </div>
-
-        <ul className="mt-4">
+        <ul className="mt-4 px-4">
           <li>
             <Link to="/">
             <Button className="w-full !capitalize !justify-start flex gap-3 text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:bg-[#f1f1f1]">
@@ -81,7 +85,7 @@ const Sidebar = () => {
             </Button>
             </Link>
           </li>
-{/* //------------------------------------------------------------ */}
+
           <li>
             <Button className="w-full !capitalize !justify-start flex gap-3 text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:bg-[#f1f1f1]" 
             onClick={() => isOpenSubMenu(3)}>
@@ -115,7 +119,7 @@ const Sidebar = () => {
             </Collapse>
             </li>
 
-{/* //----------------------------------------------- */}
+
           <li>
             <Button className="w-full !capitalize !justify-start flex gap-3 text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:bg-[#f1f1f1]" 
             onClick={() => isOpenSubMenu(4)}>
@@ -168,7 +172,6 @@ const Sidebar = () => {
             </Collapse>
            
           </li>
-{/* ---------------- */}
           <li>
             <Link to="/orders">
             <Button className="w-full !capitalize !justify-start flex gap-3 text-[14px] !text-[rgba(0,0,0,0.8)] !font-[500] items-center !py-2 hover:bg-[#f1f1f1]">
@@ -184,7 +187,7 @@ const Sidebar = () => {
           </li>
         </ul>
       </div>
-    </>
+
   );
 };
 

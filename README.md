@@ -50,7 +50,7 @@ The Admin Panel allows you to:
 | Dipesh Yadav | Team Leader / Reviewer |
 | Deepak Singh | Developer |
 | Ariga Charani | Developer |
-| Devendra Singh Pawar | Developer |
+| Devendra Singh Panwar | Developer |
 |Tharun  | Developer |
 
 ---
