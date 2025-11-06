@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,PureComponent } from 'react'
 import { FaPlus } from "react-icons/fa";
 import DashboardBoxes from '../../components/DashboardBoxes'
 import Checkbox from '@mui/material/Checkbox';
@@ -7,15 +7,16 @@ import Progress from '../../components/Progress bar';
 import { CiEdit } from "react-icons/ci";
 import { IoMdEye } from "react-icons/io";
 import { FaTrashAlt } from "react-icons/fa";
-import Tooltip from '@mui/material/Tooltip';
+
 import Pagination from '@mui/material/Pagination';
 import { Edit, Delete, Visibility } from '@mui/icons-material';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,IconButton,  Typography, Box, LinearProgress} from '@mui/material';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer} from 'recharts';
 
 // Dashboard Component State (moved into component)
 
-const rows = [
+const rows= [
   {
     id: 1,
     name: 'VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for Women',
@@ -60,6 +61,45 @@ const Dashboard = () => {
   // Add state for category filter
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [chart1Data, setChart1Data]= useState([
+    {
+      id: 1,
+      name: 'VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for Women',
+      brand: 'Books',
+      category: 'Electronics',
+      subCategory: 'Women',
+      price: 58.00,
+      oldPrice: 58.00,
+      sales: 234,
+      progress: 60,
+      image: 'https://ecme-react.themenate.net/img/products/product-1.jpg',
+    },
+    {
+      id: 2,
+      name: 'VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for Women',
+      brand: 'Books',
+      category: 'Electronics',
+      subCategory: 'Women',
+      price: 58.00,
+      oldPrice: 58.00,
+      sales: 234,
+      progress: 60,
+      image: 'https://ecme-react.themenate.net/img/products/product-1.jpg',
+    },
+    {
+      id: 3,
+      name: 'VNEED Women Embroidered Rayon Kurta Pant Set | Kurta set for Women',
+      brand: 'Books',
+      category: 'Electronics',
+      subCategory: 'Women',
+      price: 58.00,
+      oldPrice: 58.00,
+      sales: 234,
+      progress: 60,
+      image: 'https://ecme-react.themenate.net/img/products/product-1.jpg',
+    },
+  ]);
+
 
   useEffect(() => {
       const handleClickOutside = (event) => {
@@ -88,7 +128,7 @@ const Dashboard = () => {
         <br/>
         <button className="btn-blue !capitalize flex items-center gap-2"> <FaPlus/> Add Product</button>
    </div>
-   <img src="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg" srcset="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=360 360w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=740 740w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1060 1060w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1480 1480w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=2000 2000w" width="626" height="625" alt="shopping paper sheet composition" fetchpriority="high" sizes="(max-width: 480px) 100vw, (min-aspect-ratio: 626/625) 100%, (max-width: 1024px) calc(100vw - 40px), calc(100vw - 540px)" className="w-[300px] h-[250px] object-cover rounded-md"/>
+   <img src="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg" srcet="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=360 360w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=740 740w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1060 1060w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1480 1480w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=2000 2000w" width="626" height="625" alt="shopping paper sheet composition" fetchpriority="high" sizes="(max-width: 480px) 100vw, (min-aspect-ratio: 626/625) 100%, (max-width: 1024px) calc(100vw - 40px), calc(100vw - 540px)" className="w-[300px] h-[250px] object-cover rounded-md"/>
    </div>
    <DashboardBoxes />
 
@@ -97,7 +137,7 @@ const Dashboard = () => {
 
 
    <div className="card my-3 shadow-md sm:rounded-lg bg-white">
-    <div className="px-3 py-5">
+     <div className="px-3 py-5">
       <div className="flex flex-col gap-4">
         <h2 className="text-[18px] font-[600]">Products <span className='text-sm text-grey-50 ml-1'>(Tailwind CSS Table)</span></h2>
         
@@ -244,26 +284,26 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                         
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                   
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                    
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                   
 
                     </div>
 
@@ -274,8 +314,8 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+        
+         
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -329,26 +369,26 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                         
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                  
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                    
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                    
 
                     </div>
 
@@ -359,8 +399,8 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+      
+        
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -414,26 +454,26 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                        
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                    
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                  
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                   
 
                     </div>
 
@@ -444,8 +484,7 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+        
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -499,26 +538,25 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                        
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                    
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                    
+                   
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
 
                     </div>
 
@@ -529,8 +567,7 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+       
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -584,26 +621,26 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                         
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                    
 
-                    <Tooltip title="See Product" placement="top">
+                   
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                    
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                    
 
                     </div>
 
@@ -614,8 +651,7 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+        
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -669,26 +705,26 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                         
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
+                   
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                   
+                 
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                  
                     <div>
 
                     </div>
@@ -702,8 +738,7 @@ const Dashboard = () => {
 
             </tr>
              
-        </tbody>
-         <tbody>
+       
             <tr  className="bg-white border-b dark:border-gray-700 border-gray-200">
                 <td className='px-6 py-3'>
                     <div className='w-[60px]'> 
@@ -757,26 +792,25 @@ const Dashboard = () => {
 
                 <td className="px-6 py-2">
                     <div className='flex items-center gap-4'>
-                         <Tooltip title="Edit Product Details" placement="top">
+                        
                     <button className='!w-[40px] !h-[35px] !rounded-full bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <CiEdit className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button> 
-                    </Tooltip>
 
-                    <Tooltip title="See Product" placement="top">
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <IoMdEye className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
                     </button>
-                    </Tooltip>
-                    <Tooltip title="Remove Product" placement="top">
+                    
+                    
                     <button className='!w-[40px] !h-[35px] bg-[#fcfcfc] min-w-[35px] hover:bg-blue-200'>
                         <FaTrashAlt className='text-[rgba(0,0,0,0,0.7)] text-[18px]'/>
 
 
                     </button> 
-                    </Tooltip>
+                    
 
                     </div>
                                
@@ -832,17 +866,15 @@ const Dashboard = () => {
                     />
                     <Box>
                       <Typography 
-                        component={Link} 
-                        to={`/product/${row.id}`}
-                        variant="body2" 
-                        fontWeight={500}
-                        sx={{ 
-                          textDecoration: 'none',
-                          color: 'inherit',
-                          '&:hover': {
-                            color: 'primary.main'
-                          }
-                        }}
+  component={Link} 
+  to={`/product/${row.id}`}  // ✅ backticks for template literal
+  variant="body2" 
+  fontWeight={500}
+  sx={{ 
+    textDecoration: 'none',
+    color: 'inherit',
+    '&:hover': { color: 'primary.main' }
+  }}
                       >
                         {row.name}
                       </Typography>
@@ -909,8 +941,46 @@ const Dashboard = () => {
     </Paper>
     </div>
 
-
-
+    <div className="card my-3 shadow-md sm:rounded-lg bg-white">
+      <div className="flex items-center justify-between px-5 py-5 pb-0">
+        <h2 className="text-[18px] font-[600]">Total Users & Total Sales</h2>
+      </div>
+      <div className="flex items-center gap-5 px-5 py-5 pb-0">
+      
+      
+      <span className="flex items-center gap-1 text-[15px]"> <span className="block w-[8px] h-[8px] rounded-full bg-green-600 "> 
+        </span>Total Users</span>
+        <span className="flex items-center gap-1 text-[15px]"> <span className="block w-[8px] h-[8px] rounded-full bg-primary "> 
+        </span>Total Sales</span>
+      </div>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          width={500}
+          height={300}
+          data={chart1Data}
+          margin={{
+            top:5,
+            right:30,
+            left:20,
+            bottom:5,
+          }}
+          >
+            <CartesianGrid strokeDasharray="3 3" stroke="none"/>
+            <XAxis dataKey="name" tick={{ fontsize:12 }} />
+            <YAxis tick ={{ fontSize: 12}}/>
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="sales"
+              stroke="#8884d8"
+              strokeWidth={3}
+              activeDot={{ r : 8 }}
+              />
+              <Line type="monotone" dataKey="progress" stroke="#82ca9d" />
+              </LineChart>
+      </ResponsiveContainer>
+    </div>
    </>
   )
 }
