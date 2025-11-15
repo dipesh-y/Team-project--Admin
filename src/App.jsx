@@ -1,46 +1,67 @@
 import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Index";
+import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
+import MyContext from "./context/MyContext";
 import "./App.css";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp"; 
 
 const App = () => {
-  // ✅ Sidebar toggle state
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
-  // ✅ Toggle function
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
+    },
+    {
+      path: "/", 
       element: (
-        <>
-          <section className="main">
-            <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
-            <div className="contentMain flex">
-              {/* Sidebar */}
-              <div className={`sidebarWrapper transition-all duration-300 ${isSidebarOpen ? 'w-[18%]' : 'w-0 opacity-0'}`}>
-                <Sidebar toggleSidebar={toggleSidebar} />
-              </div>
-
-              {/* Main content area */}
-              <div
-                className={`contentRight py-5 px-5 transition-all duration-300 ${
-                  isSidebarOpen ? "w-[82%]" : "w-full"
-                }`}
-              >
-                <Dashboard />
-              </div>
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
             </div>
-          </section>
-        </>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <Dashboard />
+            </div>
+          </div>
+        </section>
       ),
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  const values = {
+    isSidebarOpen,
+    setIsSidebarOpen,
+    isLogin,
+    setIsLogin,
+  };
+
+  return (
+    <MyContext.Provider value={values}>
+      <RouterProvider router={router} />
+    </MyContext.Provider>
+  );
 };
 
 export default App;
