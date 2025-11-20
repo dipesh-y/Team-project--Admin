@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
 import { Link } from "react-router-dom";
 import { RxDashboard } from "react-icons/rx";
 import { FaRegImage } from "react-icons/fa";
@@ -11,6 +11,8 @@ import { IoMdLogOut } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa6";
 import { Collapse } from "react-collapse";
 import { RiMenu2Line } from "react-icons/ri";
+import { PiDiamondLight } from "react-icons/pi";
+import MyContext from "../../context/MyContext";
 
 
 const Sidebar = ({ toggleSidebar }) => {
@@ -23,6 +25,8 @@ const Sidebar = ({ toggleSidebar }) => {
       setSubmenuIndex(index);
     }
   };
+
+  const context = useContext(MyContext)
 
   return (
       <div className="sidebar fixed top-0 left-0 bg-[#fff] h-screen w-[18%] border-r border-[rgba(0,0,0,0.1)] shadow-md transition-all duration-300">
@@ -108,11 +112,17 @@ const Sidebar = ({ toggleSidebar }) => {
                 </li>
 
                 <li className="w-full">
-                  <Link to="/products/upload">
-                    <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3"> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
-                      Product Upload
+                 
+                  <Button className="w-full !capitalize !items-center !justify-start !text-[14px] !font-[400] !text-[rgba(0,0,0,0.8)] !py-3 !px-4 !pl-10 !rounded-md hover:!bg-[rgba(0,0,0,0.05)] transition-all gap-3" onClick={()=>context.setIsOpenFullScreenPanel({
+                      open: true,
+                      model:"Add Product"
+                    })}>
+                      <PiDiamondLight />
+                      <span>
+                        Product Upload
+                      </span>
                     </Button>
-                  </Link>
+                
                 </li>
               </ul> 
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect,PureComponent } from 'react'
+import React, { useState, useEffect,PureComponent, useContext } from 'react'
 import { FaPlus } from "react-icons/fa";
 import DashboardBoxes from '../../components/DashboardBoxes'
 import Checkbox from '@mui/material/Checkbox';
@@ -14,8 +14,9 @@ import { Edit, Delete, Visibility } from '@mui/icons-material';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,IconButton,  Typography, Box, LinearProgress} from '@mui/material';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer} from 'recharts';
+import MyContext from '../../context/MyContext';
 
-// Dashboard Component State (moved into component)
+
 
 const rows= [
   {
@@ -113,8 +114,7 @@ const Dashboard = () => {
       return () => document.removeEventListener('click', handleClickOutside);
     }, [isFilterOpen]);
 
-
-
+const context =  useContext(MyContext)
 
 
   return (
@@ -127,7 +127,10 @@ const Dashboard = () => {
         
         <p>Here's What happening on your store today.See the statistics at once.</p>
         <br/>
-        <button className="btn-blue !capitalize flex items-center gap-2"> <FaPlus/> Add Product</button>
+        <button className="btn-blue !capitalize flex items-center gap-2" onClick={()=>context.setIsOpenFullScreenPanel({
+                                  open: true,
+                                  model:"Add Product"
+                                })}> <FaPlus/> Add Product</button>
    </div>
   <img src="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg" srcet="https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=360 360w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=740 740w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1060 1060w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=1480 1480w, https://img.freepik.com/free-vector/shopping-paper-sheet-composition_1284-21402.jpg?t=st=1761569545~exp=1761573145~hmac=4a2ad604f17947a7727ff26b45dee8ec1c3e9a9b785a2bf0781557a585572015&amp;w=2000 2000w" width="626" height="625" alt="shopping paper sheet composition" fetchPriority="high" sizes="(max-width: 480px) 100vw, (min-aspect-ratio: 626/625) 100%, (max-width: 1024px) calc(100vw - 40px), calc(100vw - 540px)" className="w-[300px] h-[250px] object-cover rounded-md"/>
    </div>
