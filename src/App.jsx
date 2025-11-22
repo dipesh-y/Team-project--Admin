@@ -12,6 +12,14 @@ import { AppBar, Dialog, IconButton, Slide, Toolbar } from "@mui/material";
 import { FaDoorClosed } from "react-icons/fa6";
 import Typography from '@mui/material/Typography';
 import Dashboard from "./pages/Dashboard/Index";
+import HomeSliderBanners from "./pages/HomeSliderBanners";
+import AddHomeSlide from "./pages/HomeSliderBanners/addHomeSlide";
+import CategoryList from "./pages/Category";
+import AddCategory from "./pages/Category/addCategory";
+import SubCategoryList from "./pages/Category/subCatList";
+import AddSubCategory from "./pages/Category/addSubCategory";
+import Users from "./pages/Users";
+import Orders from "./pages/Orders";
 
 
 const App = () => {
@@ -100,6 +108,132 @@ const App = () => {
         </>
       ),
     },
+     {
+      path: "/homeSlider/list", 
+      element: (
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
+            </div>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <HomeSliderBanners/>
+            </div>
+          </div>
+        </section>
+      ),
+    },
+     {
+      path: "/category/list", 
+      element: (
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
+            </div>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <CategoryList/>
+            </div>
+          </div>
+        </section>
+      ),
+    },
+     {
+      path: "/subCategory/list", 
+      element: (
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
+            </div>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <SubCategoryList/>
+            </div>
+          </div>
+        </section>
+      ),
+    },
+         {
+      path: "/users", 
+      element: (
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
+            </div>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <Users/>
+            </div>
+          </div>
+        </section>
+      ),
+    },
+            {
+      path: "/orders", 
+      element: (
+        <section className="main">
+          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+          <div className="contentMain flex">
+            <div
+              className={`sidebarWrapper transition-all duration-300 ${
+                isSidebarOpen ? "w-[18%]" : "w-0 opacity-0"
+              }`}
+            >
+              <Sidebar toggleSidebar={toggleSidebar} />
+            </div>
+
+            <div
+              className={`contentRight py-5 px-5 transition-all duration-300 ${
+                isSidebarOpen ? "w-[82%]" : "w-full"
+              }`}
+            >
+              <Orders/>
+            </div>
+          </div>
+        </section>
+      ),
+    },
+     
   ]);
     const [productRows, setProductRows] = useState([
     createData(
@@ -281,8 +415,19 @@ function createData(
         {
           isOpenFullScreenPanel ?.model === "Add Product" && <AddProduct/>
         }
+       
+       {
+          isOpenFullScreenPanel ?.model === "Add Home Slide" && <AddHomeSlide/>
+        }
+          {
+          isOpenFullScreenPanel ?.model === "Add New Category" && <AddCategory/>
+        }
 
-      </Dialog>
+         {
+          isOpenFullScreenPanel ?.model === "Add New Sub Category" && <AddSubCategory/>
+        }
+      </
+      Dialog>
 
     </MyContext.Provider>
   );

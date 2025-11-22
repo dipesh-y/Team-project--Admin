@@ -144,7 +144,7 @@ const Sidebar = ({ toggleSidebar }) => {
             <Collapse isOpened={submenuIndex===4 ? true:false}>
               <ul className="w-full">
                 <li className="w-full">
-                  <Link to="/categories">
+                  <Link to="/category/list">
                     <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3"> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
                       Category List
                     </Button>
@@ -152,15 +152,20 @@ const Sidebar = ({ toggleSidebar }) => {
                 </li>
 
                 <li className="w-full">
-                  <Link to="/categories/add">
-                    <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3"> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
+                  
+                    <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3 "   onClick={() =>
+                  context?.setIsOpenFullScreenPanel({
+                    open: true,
+                    model: "Add New Category",
+                  })
+                }> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
                       Add a Category
                     </Button>
-                  </Link>
+                  
                 </li>
 
                 <li className="w-full">
-                  <Link to="/category/subCat">
+                  <Link to="/subCategory/list">
                     <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3"> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
                       Sub Category List
                     </Button>
@@ -168,11 +173,16 @@ const Sidebar = ({ toggleSidebar }) => {
                 </li>
 
                 <li className="w-full">
-                  <Link to="/category/subCat/add">
-                <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3"> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
+                  
+                <Button className="!text-[rgba(0,0,0,0.7)] !capitalize !justify-start !w-full !text-[13px] !font-[500] !pl-9 flex gap-3" onClick={() =>
+                  context?.setIsOpenFullScreenPanel({
+                    open: true,
+                    model: "Add New Sub Category",
+                  })
+                }> <span className="block w-[5px] h-[10px] rounded-full bg-[rgba(0,0,0,0.1)]"></span>
                   Add a Sub Category
                 </Button>
-              </Link>
+              
                 </li>
 
 
